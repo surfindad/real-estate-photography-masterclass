@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Estate Photography Masterclass - Complete Professional Course</title>
+    <title>Real Estate Photography Masterclass - Complete Professional Workbook</title>
+    <meta name="description" content="The complete real estate photography system in one 62-page workbook. Camera settings, editing workflows, shot lists, pricing, and business tools â everything you need to shoot and earn professionally.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,11 +19,7 @@
             --border: rgba(0, 0, 0, 0.1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Source Sans 3', sans-serif;
@@ -32,11 +29,7 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 900;
-            line-height: 1.2;
-        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 900; line-height: 1.2; }
 
         /* Navigation */
         nav {
@@ -47,640 +40,258 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid var(--border);
+            padding: 1rem 2rem;
         }
-
         nav .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
+        .logo { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.1rem; text-decoration: none; color: var(--primary); letter-spacing: 1px; }
         .nav-cta {
             background: var(--accent);
             color: var(--white);
-            padding: 0.8rem 2rem;
-            text-decoration: none;
+            padding: 0.75rem 1.75rem;
             border-radius: 4px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: background 0.2s;
         }
+        .nav-cta:hover { background: var(--accent-dark); }
 
-        .nav-cta:hover {
-            background: var(--accent-dark);
-            border-color: var(--accent-dark);
-            transform: translateY(-2px);
-        }
-
-        /* Hero Section */
+        /* Hero */
         .hero {
-            margin-top: 80px;
-            min-height: 90vh;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2418 50%, #3a2d1e 100%);
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, var(--primary) 0%, #2d2d2d 100%);
+            padding: 8rem 2rem 5rem;
             position: relative;
             overflow: hidden;
         }
-
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(212, 165, 116, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(212, 165, 116, 0.1) 0%, transparent 50%);
-            pointer-events: none;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 60% 50%, rgba(212, 165, 116, 0.12) 0%, transparent 70%);
         }
-
-        .hero .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem);
+        .hero .container { max-width: 1400px; margin: 0 auto; position: relative; }
+        .hero-content { max-width: 750px; }
+        .hero h1 { font-size: clamp(3rem, 7vw, 5.5rem); color: var(--white); margin-bottom: 1.5rem; }
+        .hero-subtitle { font-size: 1.25rem; color: rgba(255,255,255,0.82); margin-bottom: 2.5rem; max-width: 600px; line-height: 1.7; }
+        .hero-stats { display: flex; gap: 3rem; margin-bottom: 3rem; flex-wrap: wrap; }
+        .stat-number { display: block; font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 900; color: var(--accent); }
+        .stat-label { font-size: 0.9rem; color: rgba(255,255,255,0.65); text-transform: uppercase; letter-spacing: 1px; }
+        .hero-cta {
+            display: inline-block;
+            background: var(--accent);
             color: var(--white);
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-            animation: fadeInUp 0.8s ease-out 0.2s backwards;
-        }
-
-        .hero-stats {
-            display: flex;
-            gap: 3rem;
-            margin-bottom: 3rem;
-            animation: fadeInUp 0.8s ease-out 0.4s backwards;
-        }
-
-        .stat {
-            color: var(--white);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
+            padding: 1.1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
             font-weight: 700;
-            color: var(--accent);
+            font-size: 1.1rem;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .hero-cta:hover { background: var(--accent-dark); transform: translateY(-2px); }
+
+        /* Sections */
+        section { padding: 6rem 2rem; }
+        .container { max-width: 1400px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 700; margin-bottom: 1rem; }
+        .section-title { font-size: clamp(2rem, 4vw, 3.2rem); color: var(--primary); margin-bottom: 1.25rem; }
+        .section-subtitle { font-size: 1.15rem; color: var(--gray); max-width: 650px; margin: 0 auto; }
+
+        /* Benefits */
+        .benefits { background: var(--white); }
+        .benefits-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2.5rem; margin-top: 3.5rem; }
+        .benefit-card { text-align: center; padding: 2.5rem 2rem; }
+        .benefit-icon { font-size: 2.5rem; margin-bottom: 1.25rem; display: block; }
+        .benefit-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--primary); }
+        .benefit-card p { color: var(--gray); font-size: 1rem; line-height: 1.65; }
+
+        /* Curriculum */
+        .curriculum { background: var(--light); }
+        .module-list { max-width: 860px; margin: 0 auto; }
+        .module-item { background: var(--white); border: 1px solid var(--border); border-radius: 8px; margin-bottom: 1rem; overflow: hidden; }
+        .module-header { display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem 2rem; }
+        .module-number { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--accent); opacity: 0.7; min-width: 60px; }
+        .module-title { font-size: 1.2rem; font-weight: 700; color: var(--primary); }
+        .module-body { padding: 0 2rem 1.5rem 5.5rem; }
+        .module-desc { color: var(--gray); margin-bottom: 1rem; font-size: 0.98rem; }
+        .module-topics { list-style: none; }
+        .module-topics li { color: var(--gray); padding: 0.3rem 0; font-size: 0.95rem; padding-left: 1.5rem; position: relative; }
+        .module-topics li::before { content: 'â'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+
+        /* Instructor */
+        .instructor { background: var(--white); }
+        .instructor-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 5rem; align-items: center; max-width: 960px; margin: 0 auto; }
+        .instructor-photo { aspect-ratio: 1; border-radius: 8px; background: #e8e0d8; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+        .instructor-photo-placeholder { font-size: 5rem; opacity: 0.3; }
+        .instructor-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); font-weight: 700; margin-bottom: 0.75rem; }
+        .instructor-name { font-size: 2.4rem; margin-bottom: 1.25rem; color: var(--primary); }
+        .instructor-bio { color: var(--gray); font-size: 1.05rem; line-height: 1.75; margin-bottom: 1rem; }
+        .instructor-stats { display: flex; gap: 2.5rem; margin-top: 2rem; flex-wrap: wrap; }
+        .instructor-stat-number { display: block; font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--accent); }
+        .instructor-stat-label { font-size: 0.85rem; color: var(--gray); text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Pricing */
+        .pricing { background: linear-gradient(135deg, #1a1a1a 0%, #2d2418 100%); }
+        .pricing .section-label { color: var(--accent); }
+        .pricing .section-title { color: var(--white); }
+        .pricing .section-subtitle { color: rgba(255,255,255,0.7); }
+        .pricing-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(212,165,116,0.3); border-radius: 12px; padding: 3.5rem; max-width: 560px; margin: 0 auto; text-align: center; }
+        .pricing-badge { background: var(--accent); color: var(--white); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 0.4rem 1rem; border-radius: 20px; display: inline-block; margin-bottom: 1.5rem; }
+        .price-amount { font-size: 5rem; font-weight: 900; color: var(--white); font-family: 'Playfair Display', serif; line-height: 1; }
+        .price-period { font-size: 1.1rem; color: rgba(255,255,255,0.65); margin: 0.5rem 0 2rem; }
+        .pricing-features { list-style: none; margin: 0 0 2.5rem; text-align: left; }
+        .pricing-features li { color: rgba(255,255,255,0.85); padding: 0.9rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding-left: 2rem; position: relative; font-size: 1rem; }
+        .pricing-features li::before { content: 'â'; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+        .enroll-btn {
             display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        .cta-primary {
-            display: inline-block;
             background: var(--accent);
             color: var(--white);
-            padding: 1.2rem 3rem;
-            font-size: 1.2rem;
-            font-weight: 700;
+            padding: 1.1rem 2rem;
+            border-radius: 6px;
             text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--accent);
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
-        }
-
-        .cta-primary:hover {
-            background: var(--accent-dark);
-            border-color: var(--accent-dark);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.3);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Value Proposition */
-        .value-prop {
-            padding: 6rem 2rem;
-            background: var(--white);
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 4rem;
-        }
-
-        .section-label {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent);
             font-weight: 700;
+            font-size: 1.15rem;
+            transition: background 0.2s, transform 0.15s;
             margin-bottom: 1rem;
         }
+        .enroll-btn:hover { background: var(--accent-dark); transform: translateY(-2px); }
+        .guarantee { color: rgba(255,255,255,0.55); font-size: 0.9rem; margin-top: 1rem; }
 
-        .section-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--gray);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .benefit-card {
-            text-align: center;
-            padding: 2rem;
-            transition: transform 0.3s ease;
-        }
-
-        .benefit-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .benefit-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
-        }
-
-        .benefit-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary);
-        }
-
-        .benefit-card p {
-            color: var(--gray);
-            line-height: 1.8;
-        }
-
-        /* Curriculum Section */
-        .curriculum {
-            padding: 6rem 2rem;
-            background: var(--light);
-        }
-
-        .modules-grid {
-            display: grid;
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .module-card {
-            background: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .module-card:hover {
-            border-color: var(--accent);
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .module-header {
-            background: linear-gradient(135deg, var(--primary) 0%, #2d2d2d 100%);
-            color: var(--white);
-            padding: 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .module-number {
-            font-size: 3rem;
-            font-weight: 900;
-            font-family: 'Playfair Display', serif;
-            color: var(--accent);
-            line-height: 1;
-        }
-
-        .module-title {
-            font-size: 1.8rem;
-        }
-
-        .module-content {
-            padding: 2rem;
-        }
-
-        .module-description {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .module-topics {
-            list-style: none;
-            display: grid;
-            gap: 0.8rem;
-        }
-
-        .module-topics li {
-            padding-left: 2rem;
-            position: relative;
-            color: var(--primary);
-        }
-
-        .module-topics li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        /* Pricing Section */
-        .pricing {
-            padding: 6rem 2rem;
-            background: var(--white);
-        }
-
-        .pricing-card {
-            max-width: 600px;
-            margin: 4rem auto 0;
-            background: linear-gradient(135deg, var(--primary) 0%, #2d2d2d 100%);
-            border-radius: 12px;
-            padding: 3rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.2) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .pricing-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .pricing-badge {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--white);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
-        }
-
-        .price {
-            font-size: 4rem;
-            font-weight: 900;
-            color: var(--white);
-            font-family: 'Playfair Display', serif;
-            margin-bottom: 1rem;
-        }
-
-        .price-subtitle {
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 2rem;
-            font-size: 1.1rem;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin: 2rem 0 3rem;
-            text-align: left;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .pricing-features li {
-            color: var(--white);
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-left: 2.5rem;
-            position: relative;
-        }
-
-        .pricing-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 700;
-            font-size: 1.5rem;
-        }
-
-        .cta-pricing {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--white);
-            padding: 1.2rem 3rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            border: 2px solid var(--accent);
-        }
-
-        .cta-pricing:hover {
-            background: var(--white);
-            color: var(--primary);
-            border-color: var(--white);
-            transform: scale(1.05);
-        }
-
-        /* FAQ Section */
-        .faq {
-            padding: 6rem 2rem;
-            background: var(--light);
-        }
-
-        .faq-list {
-            max-width: 900px;
-            margin: 4rem auto 0;
-        }
-
-        .faq-item {
-            background: var(--white);
-            margin-bottom: 1.5rem;
-            border-radius: 8px;
-            overflow: hidden;
-            border: 2px solid var(--border);
-        }
-
-        .faq-question {
-            padding: 1.5rem 2rem;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .faq-question:hover {
-            background: var(--light);
-        }
-
-        .faq-toggle {
-            font-size: 1.5rem;
-            color: var(--accent);
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(45deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease;
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-
-        .faq-answer-content {
-            padding: 0 2rem 1.5rem;
-            color: var(--gray);
-            line-height: 1.8;
-        }
+        /* FAQ */
+        .faq { background: var(--light); }
+        .faq-list { max-width: 760px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border); }
+        .faq-question { width: 100%; text-align: left; background: none; border: none; padding: 1.5rem 0; font-size: 1.05rem; font-weight: 700; color: var(--primary); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Source Sans 3', sans-serif; }
+        .faq-question::after { content: '+'; font-size: 1.4rem; color: var(--accent); transition: transform 0.2s; flex-shrink: 0; margin-left: 1rem; }
+        .faq-item.active .faq-question::after { transform: rotate(45deg); }
+        .faq-answer { display: none; padding-bottom: 1.5rem; color: var(--gray); line-height: 1.7; font-size: 1rem; }
+        .faq-item.active .faq-answer { display: block; }
 
         /* Footer */
-        footer {
-            background: var(--primary);
-            color: var(--white);
-            padding: 4rem 2rem 2rem;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-        }
-
-        .footer-text {
-            opacity: 0.7;
-            margin-bottom: 2rem;
-        }
-
-        .footer-divider {
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 2rem 0;
-        }
-
-        .footer-bottom {
-            opacity: 0.6;
-            font-size: 0.9rem;
-        }
+        footer { background: var(--primary); color: rgba(255,255,255,0.6); padding: 3rem 2rem; text-align: center; }
+        footer .logo-footer { font-family: 'Playfair Display', serif; font-weight: 900; font-size: 1.2rem; color: var(--white); margin-bottom: 0.75rem; display: block; }
+        footer p { font-size: 0.9rem; }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .module-header {
-                flex-direction: column;
-                text-align: center;
-            }
+            .hero-stats { gap: 2rem; }
+            .instructor-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .instructor-photo { max-width: 260px; margin: 0 auto; }
+            .module-body { padding-left: 2rem; }
         }
     </style>
 </head>
 <body>
+
     <!-- Navigation -->
     <nav>
         <div class="container">
             <a href="#" class="logo">RE PHOTO MASTERCLASS</a>
-            <a href="https://www.paypal.com/ncp/payment/MW4MHE7CXKUSC" class="nav-cta">Get Started</a>
+            <a href="https://www.paypal.com/ncp/payment/MW4MHE7CXKUSC" class="nav-cta">Get the Workbook</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>Real Estate Photography Masterclass</h1>
-                <p class="hero-subtitle">Learn the complete system to shoot, edit, and run a profitable real estate photography business. From camera settings to client billing—everything you need in one comprehensive course.</p>
-                
+                <p class="hero-subtitle">The complete system to shoot, edit, and run a profitable real estate photography business â all in one professional 62-page workbook. No fluff, no filler. Just what works.</p>
                 <div class="hero-stats">
                     <div class="stat">
+                        <span class="stat-number">62</span>
+                        <span class="stat-label">Pages</span>
+                    </div>
+                    <div class="stat">
                         <span class="stat-number">8</span>
-                        <span class="stat-label">Complete Modules</span>
+                        <span class="stat-label">Modules</span>
                     </div>
                     <div class="stat">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Video Lessons</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">Lifetime</span>
-                        <span class="stat-label">Access</span>
+                        <span class="stat-number">$50</span>
+                        <span class="stat-label">One-Time</span>
                     </div>
                 </div>
-
-                <a href="https://www.paypal.com/ncp/payment/MW4MHE7CXKUSC" class="cta-primary">Start Learning Today</a>
+                <a href="https://www.paypal.com/ncp/payment/MW4MHE7CXKUSC" class="hero-cta">Get the Workbook â $50</a>
             </div>
         </div>
     </section>
 
-    <!-- Value Proposition -->
-    <section class="value-prop">
+    <!-- Why This Course -->
+    <section class="benefits">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Why This Course</div>
+                <p class="section-label">Why This Workbook</p>
                 <h2 class="section-title">Everything You Need to Succeed</h2>
-                <p class="section-subtitle">Stop piecing together free tutorials. Get the complete system that actually works.</p>
+                <p class="section-subtitle">Stop piecing together free tutorials. This is the complete, field-tested system built by a working real estate photographer.</p>
             </div>
-
             <div class="benefits-grid">
                 <div class="benefit-card">
-                    <div class="benefit-icon">📸</div>
-                    <h3>Complete System</h3>
-                    <p>From pre-shoot prep to final delivery, learn every step of the professional real estate photography workflow.</p>
+                    <span class="benefit-icon">ð¸</span>
+                    <h3>Complete Shoot System</h3>
+                    <p>From pre-shoot prep to final delivery â printable shot lists, room-by-room strategy, and checklists for every job.</p>
                 </div>
-
                 <div class="benefit-card">
-                    <div class="benefit-icon">⚙️</div>
-                    <h3>Technical Mastery</h3>
-                    <p>Master camera settings, lighting techniques, and equipment choices that make your photos stand out.</p>
+                    <span class="benefit-icon">âï¸</span>
+                    <h3>Camera & Lighting Mastery</h3>
+                    <p>Exact camera settings, bracketing workflows, and lighting techniques that make your photos stand out in any market.</p>
                 </div>
-
                 <div class="benefit-card">
-                    <div class="benefit-icon">💰</div>
-                    <h3>Business Skills</h3>
-                    <p>Learn pricing strategies, client communication, billing systems, and how to actually make money.</p>
+                    <span class="benefit-icon">ð°</span>
+                    <h3>Business & Pricing Tools</h3>
+                    <p>Pricing guides, billing systems, client communication scripts, and strategies to grow from first shoot to full-time income.</p>
                 </div>
-
                 <div class="benefit-card">
-                    <div class="benefit-icon">✨</div>
+                    <span class="benefit-icon">â¨</span>
                     <h3>Editing Workflows</h3>
-                    <p>Professional editing techniques and time-saving workflows to deliver stunning images efficiently.</p>
+                    <p>Step-by-step Lightroom workflows, HDR merging, color grading, and batch editing to deliver stunning images fast.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Curriculum Section -->
+    <!-- Curriculum -->
     <section class="curriculum">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Course Curriculum</div>
-                <h2 class="section-title">What You'll Learn</h2>
+                <p class="section-label">Workbook Curriculum</p>
+                <h2 class="section-title">What's Inside</h2>
+                <p class="section-subtitle">8 complete modules covering every aspect of building a professional real estate photography business.</p>
             </div>
+            <div class="module-list">
 
-            <div class="modules-grid">
-                <!-- Module 1 -->
-                <div class="module-card">
+                <div class="module-item">
                     <div class="module-header">
-                        <div class="module-number">01</div>
-                        <h3 class="module-title">Getting Started</h3>
+                        <span class="module-number">01</span>
+                        <span class="module-title">Getting Started</span>
                     </div>
-                    <div class="module-content">
-                        <p class="module-description">Build a strong foundation for your real estate photography career.</p>
+                    <div class="module-body">
+                        <p class="module-desc">Build a strong foundation for your real estate photography career.</p>
                         <ul class="module-topics">
                             <li>Understanding the real estate photography market</li>
                             <li>Setting up your business legally</li>
                             <li>Creating a portfolio from scratch</li>
                             <li>Finding your first clients</li>
+                            <li>10 beginner mistakes to avoid</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Module 2 -->
-                <div class="module-card">
+                <div class="module-item">
                     <div class="module-header">
-                        <div class="module-number">02</div>
-                        <h3 class="module-title">Essential Gear</h3>
+                        <span class="module-number">02</span>
+                        <span class="module-title">Essential Gear</span>
                     </div>
-                    <div class="module-content">
-                        <p class="module-description">Choose the right equipment without breaking the bank.</p>
+                    <div class="module-body">
+                        <p class="module-desc">Choose the right equipment without breaking the bank.</p>
                         <ul class="module-topics">
                             <li>Camera body recommendations for every budget</li>
                             <li>Best lenses for real estate (wide-angle essentials)</li>
@@ -690,272 +301,208 @@
                     </div>
                 </div>
 
-                <!-- Module 3 -->
-                <div class="module-card">
+                <div class="module-item">
                     <div class="module-header">
-                        <div class="module-number">03</div>
-                        <h3 class="module-title">Camera Settings Mastery</h3>
+                        <span class="module-number">03</span>
+                        <span class="module-title">Camera Settings Mastery</span>
                     </div>
-                    <div class="module-content">
-                        <p class="module-description">Dial in the perfect settings for every situation.</p>
+                    <div class="module-body">
+                        <p class="module-desc">Dial in the perfect settings for every situation.</p>
                         <ul class="module-topics">
                             <li>Optimal aperture, shutter speed, and ISO combinations</li>
-                            <li>White balance for accurate colors</li>
+                            <li>White balance by room type â quick reference tables</li>
                             <li>Bracketing for HDR photography</li>
                             <li>Flash settings and ambient light balancing</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Module 4 -->
-                <div class="module-card">
+                <div class="module-item">
                     <div class="module-header">
-                        <div class="module-number">04</div>
-                        <h3 class="module-title">Pre-Shoot Preparation</h3>
+                        <span class="module-number">04</span>
+                        <span class="module-title">Pre-Shoot Preparation</span>
                     </div>
-                    <div class="module-content">
-                        <p class="module-description">Set yourself up for success before you arrive.</p>
+                    <div class="module-body">
+                        <p class="module-desc">Set yourself up for success before you arrive.</p>
                         <ul class="module-topics">
                             <li>Client communication and scheduling</li>
-                            <li>Pre-shoot checklists and equipment prep</li>
+                            <li>Printable pre-shoot checklist (laminate and reuse)</li>
+                            <li>Printable shot list template â room by room</li>
                             <li>Staging tips to share with clients</li>
-                            <li>Time management and shoot planning</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Module 5 -->
-                <div class="module-card">
+                <div class="module-item">
                     <div class="module-header">
-                        <div class="module-number">05</div>
-                        <h3 class="module-title">The Shoot</h3>
+                        <span class="module-number">05</span>
+                        <span class="module-title">The Shoot</span>
                     </div>
-                    <div class="module-content">
-                        <p class="module-description">Execute professional shoots with confidence.</p>
+                    <div class="module-body">
+                        <p class="module-desc">Execute professional shoots with confidence, room by room.</p>
                         <ul class="module-topics">
-                            <li>Room-by-room shooting strategy</li>
+                            <li>Room-by-room shooting strategy and shot counts</li>
                             <li>Composition techniques for maximum impact</li>
-                            <li>Working with natural and artificial light</li>
-                            <li>Exterior and twilight photography</li>
-                            <li>Common mistakes and how to avoid them</li>
+                            <li>Exterior, twilight, drone, and video add-ons</li>
+                            <li>Outdoor living spaces â pools, patios, and more</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Module 6 -->
-                <div class="module-card">
+                <div class="module-item">
                     <div class="module-header">
-                        <div class="module-number">06</div>
-                        <h3 class="module-title">Editing & Post-Processing</h3>
+                        <span class="module-number">06</span>
+                        <span class="module-title">Editing & Post-Processing</span>
                     </div>
-                    <div class="module-content">
-                        <p class="module-description">Transform your raw photos into stunning deliverables.</p>
+                    <div class="module-body">
+                        <p class="module-desc">Transform your raw photos into stunning deliverables, fast.</p>
                         <ul class="module-topics">
                             <li>Lightroom workflow from import to export</li>
                             <li>HDR merging and blending techniques</li>
-                            <li>Advanced editing in Photoshop</li>
-                            <li>Creating presets for consistent results</li>
-                            <li>Batch editing to save time</li>
+                            <li>Starting edit values and color grading guide</li>
+                            <li>Batch editing and delivery workflow</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Module 7 -->
-                <div class="module-card">
+                <div class="module-item">
                     <div class="module-header">
-                        <div class="module-number">07</div>
-                        <h3 class="module-title">Pricing & Billing</h3>
+                        <span class="module-number">07</span>
+                        <span class="module-title">Pricing & Billing</span>
                     </div>
-                    <div class="module-content">
-                        <p class="module-description">Price your services properly and get paid on time.</p>
+                    <div class="module-body">
+                        <p class="module-desc">Price your services properly and get paid on time.</p>
                         <ul class="module-topics">
-                            <li>Understanding market rates in your area</li>
-                            <li>Creating service packages and pricing tiers</li>
+                            <li>Market-rate pricing guide and package templates</li>
                             <li>Contracts and usage rights</li>
                             <li>Invoicing systems and payment processing</li>
-                            <li>Handling late payments and problem clients</li>
+                            <li>Add-on pricing â twilight, drone, video, floor plans</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Module 8 -->
-                <div class="module-card">
+                <div class="module-item">
                     <div class="module-header">
-                        <div class="module-number">08</div>
-                        <h3 class="module-title">Growing Your Business</h3>
+                        <span class="module-number">08</span>
+                        <span class="module-title">Growing Your Business</span>
                     </div>
-                    <div class="module-content">
-                        <p class="module-description">Scale from side hustle to full-time income.</p>
+                    <div class="module-body">
+                        <p class="module-desc">Scale from side hustle to full-time income.</p>
                         <ul class="module-topics">
-                            <li>Marketing strategies that actually work</li>
                             <li>Building relationships with real estate agents</li>
-                            <li>Expanding services (video, drone, virtual staging)</li>
-                            <li>Systems and automation for efficiency</li>
-                            <li>Hiring and training assistants</li>
+                            <li>Referral partner strategy (inspectors, stagers, attorneys)</li>
+                            <li>Social media and Google Business Profile setup</li>
+                            <li>Video reels and Instagram marketing system</li>
                         </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor -->
+    <section class="instructor">
+        <div class="container">
+            <div class="instructor-grid">
+                <div class="instructor-photo">
+                    <span class="instructor-photo-placeholder">ð·</span>
+                </div>
+                <div class="instructor-content">
+                    <p class="instructor-label">Your Instructor</p>
+                    <h2 class="instructor-name">Sean Greeley</h2>
+                    <p class="instructor-bio">I've been shooting real estate professionally and I've learned everything in this workbook the hard way â through real shoots, real clients, and real mistakes. This isn't theory from a classroom. It's the exact system I use on every job.</p>
+                    <p class="instructor-bio">I built this workbook because when I was starting out, I couldn't find one resource that covered everything: the technical side, the business side, and the day-to-day workflows that actually keep clients coming back. Now everything I know is in these 62 pages.</p>
+                    <div class="instructor-stats">
+                        <div>
+                            <span class="instructor-stat-number">100s</span>
+                            <span class="instructor-stat-label">of Listings Shot</span>
+                        </div>
+                        <div>
+                            <span class="instructor-stat-number">8</span>
+                            <span class="instructor-stat-label">Core Modules</span>
+                        </div>
+                        <div>
+                            <span class="instructor-stat-number">$50</span>
+                            <span class="instructor-stat-label">One-Time Price</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
+    <!-- Pricing -->
+    <section class="pricing">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Investment</div>
-                <h2 class="section-title">Get Complete Access Today</h2>
+                <p class="section-label">Get Complete Access</p>
+                <h2 class="section-title">One Price. Everything Included.</h2>
+                <p class="section-subtitle">No subscription. No upsells. The complete workbook, yours to keep and print.</p>
             </div>
-
             <div class="pricing-card">
-                <div class="pricing-content">
-                    <div class="pricing-badge">Limited Time Offer</div>
-                    <div class="price">$197</div>
-                    <p class="price-subtitle">One-time payment • Lifetime access</p>
-
-                    <ul class="pricing-features">
-                        <li>Complete 8-module curriculum</li>
-                        <li>50+ HD video lessons</li>
-                        <li>Downloadable checklists & templates</li>
-                        <li>Sample contracts & pricing guides</li>
-                        <li>Lightroom presets & editing resources</li>
-                        <li>Equipment recommendation guides</li>
-                        <li>Lifetime updates and new content</li>
-                        <li>Private community access</li>
-                    </ul>
-
-                    <a href="https://www.paypal.com/ncp/payment/MW4MHE7CXKUSC" class="cta-pricing">Enroll Now</a>
-                </div>
+                <div class="pricing-badge">Complete Workbook</div>
+                <div class="price-amount">$50</div>
+                <p class="price-period">One-time payment Â· Instant PDF download</p>
+                <ul class="pricing-features">
+                    <li>62-page professional workbook (PDF)</li>
+                    <li>Complete 8-module curriculum</li>
+                    <li>Printable shot list & pre-shoot checklist</li>
+                    <li>Camera settings quick reference tables</li>
+                    <li>White balance by room type guide</li>
+                    <li>Pricing guide & service package templates</li>
+                    <li>Drone, twilight & video add-on systems</li>
+                    <li>Social media & marketing strategy</li>
+                    <li>Quick reference card (laminate-ready)</li>
+                </ul>
+                <a href="https://www.paypal.com/ncp/payment/MW4MHE7CXKUSC" class="enroll-btn">Get the Workbook â $50</a>
+                <p class="guarantee">30-day money-back guarantee. No questions asked.</p>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- FAQ -->
     <section class="faq">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">FAQ</div>
+                <p class="section-label">FAQ</p>
                 <h2 class="section-title">Common Questions</h2>
             </div>
-
             <div class="faq-list">
                 <div class="faq-item">
-                    <div class="faq-question">
-                        Do I need expensive equipment to get started?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            No! One of the modules covers equipment recommendations for every budget. You can start with entry-level gear and upgrade as you grow. I'll show you exactly what's essential versus what's optional.
-                        </div>
-                    </div>
+                    <button class="faq-question">Is this a video course or a PDF workbook?</button>
+                    <div class="faq-answer">It's a 62-page PDF workbook â beautifully designed, printable, and built to be a reference you use on every shoot. It's not a video course. Every concept is explained clearly in writing with tables, checklists, and quick-reference guides you can actually use in the field.</div>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
-                        How long do I have access to the course?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            You get lifetime access! Watch the lessons as many times as you need, at your own pace. Plus, you'll receive all future updates and new content at no additional cost.
-                        </div>
-                    </div>
+                    <button class="faq-question">Do I need expensive equipment to get started?</button>
+                    <div class="faq-answer">No. One of the modules covers equipment recommendations for every budget. You can start with entry-level gear and upgrade as you grow. The workbook shows you exactly what's essential versus what's optional â so you don't waste money on gear you don't need yet.</div>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
-                        I'm a complete beginner. Will this work for me?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Absolutely! The course starts from the ground up, assuming no prior knowledge. We cover everything from basic camera operation to advanced business strategies. If you can follow instructions, you can do this.
-                        </div>
-                    </div>
+                    <button class="faq-question">I'm a complete beginner. Will this work for me?</button>
+                    <div class="faq-answer">Absolutely. The workbook starts from the ground up, covering everything from basic camera settings to advanced business strategy. If you can follow instructions and show up with a camera, you can use this system.</div>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
-                        What software do I need for editing?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            The course primarily uses Adobe Lightroom and Photoshop, which are industry standards. I'll show you workflows for both, plus alternatives if you prefer other software.
-                        </div>
-                    </div>
+                    <button class="faq-question">What software do I need for editing?</button>
+                    <div class="faq-answer">The editing module is built around Adobe Lightroom, which is the industry standard for real estate photography. The workbook walks you through the full workflow from import to export, including HDR merging, color grading, and batch delivery.</div>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
-                        How quickly can I start making money?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Many students book their first paid shoot within 2-4 weeks of starting the course. How fast you progress depends on your dedication and local market, but the course gives you everything you need to start booking clients immediately.
-                        </div>
-                    </div>
+                    <button class="faq-question">How quickly can I start making money?</button>
+                    <div class="faq-answer">Many photographers book their first paid shoot within 2â4 weeks of putting the system to work. The workbook includes a day-by-day 30-day action plan, pricing templates, and client outreach strategies to help you move fast.</div>
                 </div>
-
                 <div class="faq-item">
-                    <div class="faq-question">
-                        Is there a refund policy?
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        <div class="faq-answer-content">
-                            Yes! If you go through the course and feel it wasn't worth your investment, just email me within 30 days for a full refund. No questions asked.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <button class="faq-question">Is there a refund policy?</button>
+                    <div class="faq-answer">YY\ËY[ÝHÛÈÝYÚHÛÜØÛÚÈ[Y[]Ø\ÛÝÛÜ[Ý\[\ÝY[[XZ[YHÚ][Ì^\ÈÜH[Y[È]Y\Ý[ÛÈ\ÚÙYÙ]Ù]Ù]Ù]ÜÙXÝ[ÛKKHÛÝ\KOÛÝ\Ü[Û\ÜÏHÙÛËYÛÝ\HÕÈPTÕTÓTÔÏÜÜ[X\Ý\H\[\Ú[\ÜÈÙX[\Ý]HÝÙÜ\OÜ°ªHX[\Ý]HÝÙÜ\HX\Ý\Û\ÜË[YÚÈ\Ù\YÜÙÛÝ\ØÜ\ËÈTHXØÛÜ[ÛØÝ[Y[]Y\TÙ[XÝÜ[
+	Ë\K\]Y\Ý[ÛÊKÜXXÚ
+]Y\Ý[ÛOÂ]Y\Ý[ÛY][\Ý[\	ØÛXÚÉË
 
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">RE PHOTO MASTERCLASS</div>
-            <p class="footer-text">Master the art and business of real estate photography</p>
-            <div class="footer-divider"></div>
-            <p class="footer-bottom">© 2024 Real Estate Photography Masterclass. All rights reserved.</p>
-        </div>
-    </footer>
+HOÂÛÛÝ][HH]Y\Ý[Û\[[[Y[ÂÛÛÝØ\ÐXÝ]HH][KÛ\ÜÓ\ÝÛÛZ[Ê	ØXÝ]IÊNÂØÝ[Y[]Y\TÙ[XÝÜ[
+	Ë\KZ][IÊKÜXXÚ
+HOKÛ\ÜÓ\Ý[[ÝJ	ØXÝ]IÊJNÂY
+]Ø\ÐXÝ]JH][KÛ\ÜÓ\ÝY
+	ØXÝ]IÊNÂJNÂJNÂËÈÛ[ÛÝØÜÛØÝ[Y[]Y\TÙ[XÝÜ[
+	ØVÚYHÈIÊKÜXXÚ
+[ÚÜOÂ[ÚÜY][\Ý[\	ØÛXÚÉË[Ý[ÛJHÂK][Y][
 
-    <script>
-        // FAQ Accordion
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentElement;
-                const wasActive = item.classList.contains('active');
-                
-                // Close all items
-                document.querySelectorAll('.faq-item').forEach(i => {
-                    i.classList.remove('active');
-                });
-                
-                // Open clicked item if it wasn't active
-                if (!wasActive) {
-                    item.classList.add('active');
-                }
-            });
-        });
-
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+NÂÛÛÝ\Ù]HØÝ[Y[]Y\TÙ[XÝÜ\ËÙ]]X]J	ÚYÊJNÂY
+\Ù]
+H\Ù]ØÜÛ[ÕY]ÊÈZ][Ü	ÜÛ[ÛÝ	ËØÚÎ	ÜÝ\	ÈJNÂJNÂJNÂÜØÜ\ØÙOÚ[
